@@ -1,0 +1,374 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    font-size: 100%; /* Base para 1em = 16px */
+    transition: font-size 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background-color: #28a745; /* Verde vibrante */
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    letter-spacing: 1.5px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.module {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    padding: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module h2 {
+    color: #218838; /* Um verde um pouco mais escuro */
+    font-size: 2em;
+    margin-top: 0;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.tip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tip-card {
+    background-color: #e6f7ed; /* Um verde bem claro */
+    border-left: 5px solid #28a745;
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 48%; /* Para duas colunas em telas maiores */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease, border-left-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-card h3 {
+    color: #218838;
+    margin-top: 0;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.tip-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tip-card ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.tip-card ul li::before {
+    content: '🌱'; /* Ícone de planta */
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    transition: color 0.3s ease;
+}
+
+/* Seção Desafio do Dia */
+#desafio-do-dia {
+    text-align: center;
+    background-color: #d1ecf1; /* Azul claro para destacar */
+    border-left: 5px solid #007bff;
+    color: #0c5460;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease, color 0.3s ease;
+}
+
+#desafio-do-dia h2 {
+    color: #007bff;
+    border-bottom-color: #b8daff;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+#daily-challenge {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#get-challenge-btn {
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#get-challenge-btn:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #343a40; /* Cinza escuro */
+    color: white;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Estilos da Aba de Acessibilidade --- */
+
+/* Modos de Contraste */
+body.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+body.high-contrast header {
+    background-color: #fff;
+    color: #000;
+}
+
+body.high-contrast .module {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.high-contrast .module h2 {
+    color: #0f0; /* Verde neon para destaque no contraste */
+    border-bottom-color: #666;
+}
+
+body.high-contrast .tip-card {
+    background-color: #111;
+    border-left-color: #0f0;
+}
+
+body.high-contrast .tip-card h3 {
+    color: #0f0;
+}
+
+body.high-contrast .tip-card ul li::before {
+    content: '⚡'; /* Ícone alternativo para alto contraste */
+    color: #0f0;
+}
+
+body.high-contrast #desafio-do-dia {
+    background-color: #000;
+    border-left-color: #0f0;
+    color: #fff;
+}
+
+body.high-contrast #desafio-do-dia h2 {
+    color: #0f0;
+    border-bottom-color: #666;
+}
+
+body.high-contrast #get-challenge-btn {
+    background-color: #0f0;
+    color: #000;
+}
+
+body.high-contrast #get-challenge-btn:hover {
+    background-color: #0a0;
+}
+
+body.high-contrast footer {
+    background-color: #111;
+    color: #fff;
+}
+
+/* Botão de Acessibilidade Flutuante */
+#accessibility-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+#accessibility-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Painel de Acessibilidade */
+#accessibility-panel {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Escondido */
+    width: 280px;
+    height: 100%;
+    background-color: #343a40;
+    color: white;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: right 0.3s ease-in-out;
+    display: flex; /* Para organizar os itens dentro do painel */
+    flex-direction: column; /* Organiza em coluna */
+    gap: 20px; /* Espaçamento entre as seções */
+}
+
+#accessibility-panel.open {
+    right: 0;
+}
+
+#accessibility-panel h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#close-accessibility-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+/* Estilos para as novas áreas de botões */
+.accessibility-section {
+    background-color: #495057; /* Fundo mais escuro para a seção */
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px; /* Espaçamento entre as seções */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Sutil sombra interna */
+}
+
+.accessibility-section h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #e9ecef; /* Cor clara para o título da seção */
+    font-size: 1.2em;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem linha se necessário */
+    gap: 10px; /* Espaçamento entre os botões */
+    justify-content: center; /* Centraliza os botões */
+}
+
+.button-group button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    flex-grow: 1; /* Permite que os botões cresçam para preencher o espaço */
+    min-width: 80px; /* Garante um tamanho mínimo */
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+.button-group button:active {
+    transform: translateY(1px); /* Efeito de "apertar" o botão */
+}
+
+/* Estilos específicos para os botões de contraste */
+.button-group #high-contrast {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.button-group #high-contrast:hover {
+    background-color: #e0a800;
+}
+
+.button-group #normal-contrast {
+    background-color: #6c757d;
+}
+
+.button-group #normal-contrast:hover {
+    background-color: #5a6268;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .tip-card {
+        max-width: 100%;
+    }
+
+    .module {
+        padding: 20px;
+    }
+
+    #accessibility-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5em;
+        top: 15px;
+        right: 15px;
+    }
+
+    #accessibility-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+    #accessibility-panel.open {
+        right: 0;
+    }
+}
