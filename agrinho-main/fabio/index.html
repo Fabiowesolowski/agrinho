@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustentaFácil - Guia de Boas Práticas Ambientais</title>
+    <!-- Google Fonts: Poppins para títulos e Roboto para corpo do texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta descrição para SEO -->
+    <meta name="description" content="Guia rápido e fácil para boas práticas ambientais, com dicas de economia de recursos, consumo consciente, alimentação sustentável e mobilidade verde.">
+    <!-- Opcional: Adicione um favicon.ico para melhorar a identidade visual do site -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        /*
+         * style.css - SustentaFácil
+         * Versão: 2.0
+         * Descrição: Estilos aprimorados para o guia de boas práticas ambientais.
+         */
+
+        /* --- 1. Variáveis CSS (Custom Properties) --- */
+        /* Definem a paleta de cores, espaçamentos, sombras e transições de forma centralizada. */
+        :root {
+            /* Paleta de Cores Primárias */
+            --color-primary: #3F51B5; /* Azul Escuro / Azul Indigo (para destaque principal) */
+            --color-secondary: #4CAF50; /* Verde Médio (para o tema sustentável) */
+            --color-accent: #FFC107; /* Amarelo Âmbar (para botões de ação e alerta) */
+            --color-text-dark: #333333; /* Texto principal escuro */
+            --color-text-light: #F8F8F8; /* Texto claro (em fundos escuros) */
+
+            /* Cores de Fundo */
+            --bg-body: #F0F2F5; /* Cinza claro suave para o fundo geral */
+            --bg-header-gradient-start: rgba(63, 81, 181, 0.85); /* Início do gradiente do header */
+            --bg-header-gradient-end: rgba(44, 62, 80, 0.85); /* Fim do gradiente do header */
+            --bg-module: #FFFFFF; /* Fundo dos módulos */
+            --bg-tip-card: #E8F5E9; /* Fundo levemente verde para cards */
+            --bg-challenge-day: #E3F2FD; /* Fundo levemente azul para desafio */
+            --bg-footer: #2C3E50; /* Cinza escuro azulado para o footer */
+            --bg-accessibility-panel-section: rgba(255, 255, 255, 0.1); /* Fundo transparente para seções do painel */
+
+            /* Cores de Borda/Linha */
+            --border-light: 2px solid rgba(0, 0, 0, 0.1); /* Borda geral suave */
+            --border-accent-light: 1px solid rgba(255, 255, 255, 0.2); /* Borda clara para elementos escuros */
+
+            /* Sombras */
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais suave para módulos */
+            --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.12); /* Sombra para o header e botão flutuante */
+            --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06); /* Sombra para cards */
+            --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra interna para seções do painel */
+
+            /* Espaçamento */
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 20px;
+            --spacing-lg: 30px;
+            --spacing-xl: 40px;
+            --padding-header: 3rem 0; /* Padding maior para o header */
+
+            /* Bordas */
+            --border-radius-base: 10px;
+            --border-radius-card: 8px;
+            --border-radius-button: 5px;
+            --border-radius-circle: 50%;
+
+            /* Transições */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease-in-out; /* Adicionado ease-in-out para suavidade */
+            --transition-transform: 0.1s ease; /* Transição para efeitos de clique/transform */
+        }
+
+        /* --- 2. Modo de Alto Contraste (Cores Neon para Acessibilidade) --- */
+        /* Redefine as variáveis para o tema de alto contraste. */
+        body.high-contrast {
+            --color-primary: #00FFFF; /* Ciano Neon */
+            --color-secondary: #FF00FF; /* Magenta Neon */
+            --color-accent: #FFFF00; /* Amarelo Neon */
+            --color-text-dark: #FFFFFF;
+            --color-text-light: #000000;
+
+            --bg-body: #000000;
+            --bg-header-gradient-start: #000000;
+            --bg-header-gradient-end: #000000;
+            --bg-module: #1A1A1A;
+            --bg-tip-card: #000000;
+            --bg-challenge-day: #1A1A1A;
+            --bg-footer: #1A1A1A;
+            --bg-accessibility-panel-section: #000000;
+
+            --border-light: 2px solid #666666;
+            --border-accent-light: 1px solid #00FFFF; /* Borda ciano neon */
+
+            --shadow-light: none; /* Remover sombras em alto contraste */
+            --shadow-medium: none;
+            --shadow-card: none;
+            --shadow-inset: none;
+
+            /* Ícone alternativo para alto contraste */
+            .tip-card ul li::before {
+                content: '⚡';
+            }
+        }
+
+        /* --- 3. Estilos Gerais do Corpo --- */
+        body {
+            font-family: 'Roboto', sans-serif; /* Fonte para o corpo do texto */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-body);
+            background-image: url('campo.avif'); /* Exemplo de padrão sutil */
+            background-size: 200px;
+            background-attachment: fixed;
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            font-size: 100%; /* Base para 1em = 16px */
+            transition: font-size var(--transition-fast), background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        /* --- 4. Estilos do Cabeçalho (Header) --- */
+        header {
+            background-image: linear-gradient(135deg, var(--bg-header-gradient-start), var(--bg-header-gradient-end)), url('https://placehold.co/1200x400/3F51B5/FFFFFF?text=Header+Image'); /* Imagem e gradiente */
+            background-size: cover; /* A imagem e o gradiente cobrem a área */
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: var(--color-text-light);
+            padding: var(--padding-header);
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            transition: background-image var(--transition-normal), color var(--transition-normal);
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif; /* Fonte Poppins para o título principal */
+            font-weight: 700;
+            font-size: 3.2em;
+            letter-spacing: 2px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sutil sombra no texto do título */
+        }
+
+        header p {
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto para o subtítulo */
+            font-weight: 300;
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        /* --- 5. Estilos da Área Principal (Main) --- */
+        main {
+            max-width: 1000px;
+            margin: var(--spacing-md) auto; /* 20px de margem superior/inferior */
+            padding: 0 var(--spacing-md); /* 20px de padding nas laterais */
+        }
+
+        /* --- 6. Estilos dos Módulos de Conteúdo (.module) --- */
+        .module {
+            background-color: var(--bg-module);
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--shadow-light);
+            margin-bottom: var(--spacing-lg); /* 30px de margem inferior */
+            padding: var(--spacing-lg); /* 30px de padding */
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        .module:hover {
+            transform: translateY(-3px); /* Leve levantamento ao passar o mouse */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Sombra um pouco maior no hover */
+        }
+
+        .module h2 {
+            color: var(--color-secondary);
+            font-size: 2em;
+            margin-top: 0;
+            border-bottom: var(--border-light); /* Borda suave */
+            padding-bottom: var(--spacing-sm); /* 10px */
+            margin-bottom: var(--spacing-md); /* 20px */
+            transition: color var(--transition-normal), border-bottom-color var(--transition-normal);
+        }
+
+        /* --- 7. Estilos do Container de Dicas (.tip-container) --- */
+        .tip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md); /* 20px de espaçamento entre os cartões */
+            justify-content: center;
+        }
+
+        /* --- 8. Estilos dos Cartões de Dicas (.tip-card) --- */
+        .tip-card {
+            background-color: var(--bg-tip-card);
+            border-left: 5px solid var(--color-secondary); /* Borda lateral verde */
+            border-radius: var(--border-radius-card); /* 8px */
+            padding: var(--spacing-md); /* 20px */
+            flex: 1;
+            min-width: 280px;
+            max-width: calc(50% - var(--spacing-sm)); /* Para duas colunas com 20px de gap */
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal), border-left-color var(--transition-normal);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--color-primary); /* Destaca a borda para azul no hover */
+        }
+
+        .tip-card h3 {
+            color: var(--color-secondary);
+            margin-top: 0;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            transition: color var(--transition-normal);
+        }
+
+        .tip-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tip-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 28px; /* Aumentado para melhor espaçamento do ícone */
+        }
+
+        .tip-card ul li::before {
+            content: '🌱'; /* Ícone de planta */
+            position: absolute;
+            left: 0;
+            top: 50%; /* Alinhamento vertical */
+            transform: translateY(-50%); /* Centraliza verticalmente */
+            font-size: 1.1em;
+            color: var(--color-secondary);
+            transition: color var(--transition-normal);
+        }
+
+        /* --- 9. Estilos da Seção Desafio do Dia (#desafio-do-dia) --- */
+        #desafio-do-dia {
+            text-align: center;
+            background-color: var(--bg-challenge-day);
+            border-left: 5px solid var(--color-primary); /* Borda lateral azul */
+            color: var(--color-text-dark);
+            padding: var(--spacing-lg); /* 30px */
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--shadow-light);
+            transition: background-color var(--transition-normal), border-left-color var(--transition-normal), color var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        #desafio-do-dia h2 {
+            color: var(--color-primary);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.15); /* Borda mais visível */
+            padding-bottom: var(--spacing-sm); /* 10px */
+            margin-bottom: var(--spacing-md); /* 20px */
+            transition: color var(--transition-normal), border-bottom-color var(--transition-normal);
+        }
+
+        #daily-challenge {
+            font-size: 1.3em;
+            margin-bottom: var(--spacing-md); /* 20px */
+            font-weight: bold;
+        }
+
+        #get-challenge-btn {
+            background-color: var(--color-accent); /* Botão com cor de destaque (amarelo) */
+            color: var(--color-text-dark); /* Texto escuro no botão amarelo */
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius-button);
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para o botão */
+            transition: background-color var(--transition-normal), transform var(--transition-transform), box-shadow var(--transition-normal);
+        }
+
+        #get-challenge-btn:hover {
+            background-color: #e0a800; /* Tom mais escuro do amarelo */
+            transform: translateY(-2px); /* Leve levantamento */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #get-challenge-btn:active {
+            transform: translateY(1px); /* Efeito de "apertar" */
+        }
+
+        /* --- 10. Estilos do Rodapé (Footer) --- */
+        footer {
+            text-align: center;
+            padding: var(--spacing-md); /* 20px */
+            margin-top: var(--spacing-xl); /* 40px */
+            background-color: var(--bg-footer);
+            color: var(--color-text-light);
+            font-size: 0.9em;
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        /* --- 11. Estilos da Aba de Acessibilidade --- */
+
+        /* Botão de Acessibilidade Flutuante */
+        #accessibility-btn {
+            position: fixed;
+            top: var(--spacing-md); /* 20px */
+            right: var(--spacing-md); /* 20px */
+            background-color: var(--color-primary); /* Usa a cor primária */
+            color: white;
+            border: 2px solid white; /* Borda para destaque */
+            border-radius: var(--border-radius-circle); /* 50% */
+            width: 50px;
+            height: 50px;
+            font-size: 1.8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-medium); /* Sombra mais pronunciada */
+            z-index: 1000;
+            transition: background-color var(--transition-normal), transform var(--transition-transform), box-shadow var(--transition-normal);
+        }
+
+        #accessibility-btn:hover {
+            background-color: #303F9F; /* Tom mais escuro do azul primário */
+            transform: scale(1.05); /* Pequeno zoom no hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        #accessibility-btn:active {
+            transform: scale(0.95); /* Efeito de "apertar" */
+        }
+
+        /* Painel de Acessibilidade */
+        #accessibility-panel {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Escondido fora da tela */
+            width: 280px;
+            height: 100%;
+            background-color: var(--bg-footer); /* Fundo cinza escuro para o painel */
+            color: var(--color-text-light);
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            padding: var(--spacing-md); /* 20px */
+            box-sizing: border-box;
+            transition: right var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md); /* 20px de espaçamento entre seções */
+        }
+
+        #accessibility-panel.open {
+            right: 0; /* Abre o painel */
+        }
+
+        #accessibility-panel h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: var(--color-secondary); /* Verde para o título do painel */
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        #close-accessibility-btn {
+            background: none;
+            border: none;
+            color: var(--color-text-light);
+            font-size: 1.5em;
+            position: absolute;
+            top: var(--spacing-sm); /* 10px */
+            right: var(--spacing-sm); /* 10px */
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        #close-accessibility-btn:hover {
+            color: var(--color-accent); /* Amarelo no hover para fechar */
+        }
+
+        /* Estilos para as seções dentro do painel de acessibilidade */
+        .accessibility-section {
+            background-color: var(--bg-accessibility-panel-section); /* Fundo sutil transparente */
+            border-radius: var(--border-radius-base); /* 10px */
+            padding: 15px;
+            margin-bottom: var(--spacing-sm); /* 10px */
+            box-shadow: var(--shadow-inset); /* Sombra interna */
+        }
+
+        .accessibility-section h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--color-text-light);
+            font-size: 1.2em;
+            text-align: center;
+            border-bottom: var(--border-accent-light); /* Borda clara */
+            padding-bottom: var(--spacing-sm); /* 10px */
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm); /* 10px */
+            justify-content: center;
+        }
+
+        .button-group button {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            border: none;
+            padding: 10px 15px;
+            border-radius: var(--border-radius-button); /* 5px */
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background-color var(--transition-fast), transform var(--transition-transform);
+            flex-grow: 1;
+            min-width: 80px;
+        }
+
+        .button-group button:hover {
+            background-color: #303F9F; /* Tom mais escuro do azul primário */
+        }
+
+        .button-group button:active {
+            transform: translateY(1px); /* Efeito de "apertar" */
+        }
+
+        /* Estilos específicos para os botões de contraste */
+        .button-group #high-contrast {
+            background-color: var(--color-accent); /* Amarelo para alto contraste */
+            color: var(--color-text-dark); /* Texto escuro */
+        }
+
+        .button-group #high-contrast:hover {
+            background-color: #e0a800; /* Tom mais escuro do amarelo */
+        }
+
+        .button-group #normal-contrast {
+            background-color: #607D8B; /* Um cinza azulado neutro para contraste normal */
+            color: var(--color-text-light);
+        }
+
+        .button-group #normal-contrast:hover {
+            background-color: #455A64; /* Tom mais escuro do cinza */
+        }
+
+        /* --- 12. Classes de Acessibilidade (sr-only) --- */
+        /* Oculta visualmente, mas mantém acessível para leitores de tela. */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* --- 13. Responsividade (Media Queries) --- */
+        /* Ajusta o layout para diferentes tamanhos de tela. */
+        @media (max-width: 1024px) {
+            main {
+                max-width: 90%; /* Ajusta a largura máxima para se adequar */
+            }
+            .tip-card {
+                max-width: calc(50% - var(--spacing-sm)); /* Ainda duas colunas, mas com mais espaço relativo */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            header p {
+                font-size: 1.1em;
+            }
+            main {
+                padding: 0 var(--spacing-md);
+            }
+            .tip-card {
+                max-width: 100%; /* Cartões empilhados em telas menores */
+            }
+            .module {
+                padding: var(--spacing-md);
+            }
+            #accessibility-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.6em;
+                top: var(--spacing-md);
+                right: var(--spacing-md);
+            }
+            #accessibility-panel {
+                width: 100%;
+                right: -100%;
+            }
+            #accessibility-panel.open {
+                right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .module {
+                padding: var(--spacing-sm);
+            }
+            .tip-card {
+                padding: var(--spacing-sm);
+            }
+            #accessibility-btn {
+                top: var(--spacing-sm);
+                right: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SustentaFácil</h1>
+        <p>Seu Guia Rápido para um Planeta Melhor</p>
+    </header>
+
+    <main>
+        <section class="module" id="economia-de-recursos">
+            <h2>🌍 Economia de Recursos</h2>
+            <div class="tip-container">
+                <article class="tip-card">
+                    <h3>Economia de Energia</h3>
+                    <ul>
+                        <li>Use lâmpadas LED, aproveite a luz natural.</li>
+                        <li>Tire aparelhos da tomada (evite *stand-by*).</li>
+                        <li>Diminua o tempo no chuveiro.</li>
+                    </ul>
+                </article>
+                <article class="tip-card">
+                    <h3>Economia de Água</h3>
+                    <ul>
+                        <li>Fique atento a vazamentos.</li>
+                        <li>Feche a torneira ao escovar os dentes.</li>
+                        <li>Reutilize água da máquina de lavar.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="module" id="consumo-consciente">
+            <h2>♻️ Consumo Consciente e Descarte Correto</h2>
+            <div class="tip-container">
+                <article class="tip-card">
+                    <h3>Os 5 Rs da Sustentabilidade</h3>
+                    <ul>
+                        <li><strong>Reduzir:</strong> Comprar menos.</li>
+                        <li><strong>Reutilizar:</strong> Dar nova vida a objetos.</li>
+                        <li><strong>Reciclar:</strong> Separar o lixo corretamente.</li>
+                        <li><strong>Repensar:</strong> Questionar hábitos de consumo.</li>
+                        <li><strong>Recusar:</strong> Dizer não a produtos prejudiciais.</li>
+                    </ul>
+                </article>
+                <article class="tip-card">
+                    <h3>Dicas de Compras</h3>
+                    <ul>
+                        <li>Priorize produtos duráveis e com menos embalagem.</li>
+                        <li>Descarte pilhas, baterias e eletrônicos em locais específicos.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="module" id="alimentacao-sustentavel">
+            <h2>🍎 Alimentação Sustentável</h2>
+            <div class="tip-container">
+                <article class="tip-card">
+                    <h3>Escolhas Inteligentes</h3>
+                    <ul>
+                        <li>Consuma alimentos locais e da estação.</li>
+                        <li>Aproveite integralmente os alimentos (reduza o desperdício).</li>
+                        <li>Considere ter uma horta urbana/doméstica.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="module" id="mobilidade-verde">
+            <h2>🚲 Mobilidade Verde</h2>
+            <div class="tip-container">
+                <article class="tip-card">
+                    <h3>Meios de Transporte</h3>
+                    <ul>
+                        <li>Caminhe ou use bicicleta sempre que possível.</li>
+                        <li>Priorize o transporte público.</li>
+                        <li>Considere caronas solidárias.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="module" id="desafio-do-dia">
+            <h2>🌟 Desafio do Dia!</h2>
+            <p id="daily-challenge">Clique para ver seu desafio sustentável!</p>
+            <button id="get-challenge-btn" aria-controls="daily-challenge">Novo Desafio</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 SustentaFácil - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão de Acessibilidade Flutuante -->
+    <button id="accessibility-btn" aria-label="Abrir configurações de acessibilidade" aria-expanded="false" aria-controls="accessibility-panel">
+        ♿
+    </button>
+
+    <!-- Painel de Acessibilidade -->
+    <div id="accessibility-panel" role="dialog" aria-modal="true" aria-labelledby="accessibility-panel-title" style="display: none;">
+        <!-- Título oculto para leitores de tela -->
+        <h3 id="accessibility-panel-title" class="sr-only">Configurações de Acessibilidade</h3>
+        <button id="close-accessibility-btn" aria-label="Fechar painel de acessibilidade">X</button>
+        
+        <div class="accessibility-section">
+            <h4>Tamanho da Fonte</h4>
+            <div class="button-group">
+                <button id="increase-font">Aumentar A+</button>
+                <button id="decrease-font">Diminuir A-</button>
+                <button id="reset-font">Padrão</button>
+            </div>
+        </div>
+
+        <div class="accessibility-section">
+            <h4>Contraste</h4>
+            <div class="button-group">
+                <button id="high-contrast">Alto Contraste</button>
+                <button id="normal-contrast">Padrão</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dailyChallengeElement = document.getElementById('daily-challenge');
+            const getChallengeBtn = document.getElementById('get-challenge-btn');
+            const accessibilityBtn = document.getElementById('accessibility-btn');
+            const accessibilityPanel = document.getElementById('accessibility-panel');
+            const closeAccessibilityBtn = document.getElementById('close-accessibility-btn');
+            const highContrastBtn = document.getElementById('high-contrast');
+            const normalContrastBtn = document.getElementById('normal-contrast');
+            const increaseFontBtn = document.getElementById('increase-font');
+            const decreaseFontBtn = document.getElementById('decrease-font');
+            const resetFontBtn = document.getElementById('reset-font');
+
+            // --- Lógica do Desafio Diário ---
+            const challenges = [
+                "Desligue a luz ao sair de um cômodo. Economia de energia garantida!",
+                "Tome um banho de no máximo 5 minutos hoje. Cada gota conta!",
+                "Reutilize uma garrafa plástica como vaso para uma pequena planta. 🌱",
+                "Separe seu lixo reciclável (plástico, papel, metal, vidro).",
+                "Planeje suas refeições para evitar o desperdício de alimentos.",
+                "Use sacolas retornáveis nas suas compras. Diga não às sacolas plásticas!",
+                "Priorize o transporte público ou a bicicleta hoje. Menos carros, menos poluição.",
+                "Descongele alimentos na geladeira em vez de usar água corrente.",
+                "Doe roupas ou objetos que você não usa mais. Reutilize e ajude!",
+                "Evite o uso de canudos plásticos. Escolha reutilizáveis ou dispense.",
+                "Consuma um alimento local e da estação. Apoie pequenos produtores!",
+                "Feche a torneira enquanto escova os dentes. Hábito simples, grande impacto."
+            ];
+
+            function getRandomChallenge() {
+                const randomIndex = Math.floor(Math.random() * challenges.length);
+                dailyChallengeElement.textContent = challenges[randomIndex];
+            }
+
+            // Exibe um desafio inicial ao carregar a página
+            getRandomChallenge();
+
+            // Listener de evento para o botão do desafio
+            getChallengeBtn.addEventListener('click', getRandomChallenge);
+
+            // --- Lógica do Painel de Acessibilidade ---
+            accessibilityBtn.addEventListener('click', () => {
+                const isOpen = accessibilityPanel.classList.toggle('open');
+                accessibilityBtn.setAttribute('aria-expanded', isOpen);
+                // Alterna o estilo de exibição para leitores de tela quando o painel está aberto/fechado
+                accessibilityPanel.style.display = isOpen ? 'flex' : 'none';
+            });
+
+            closeAccessibilityBtn.addEventListener('click', () => {
+                accessibilityPanel.classList.remove('open');
+                accessibilityBtn.setAttribute('aria-expanded', 'false');
+                accessibilityPanel.style.display = 'none';
+            });
+
+            // --- Lógica do Modo de Contraste ---
+            highContrastBtn.addEventListener('click', () => {
+                document.body.classList.add('high-contrast');
+                // Salva a preferência (opcional, mas bom para a experiência do usuário)
+                localStorage.setItem('contrastMode', 'high');
+            });
+
+            normalContrastBtn.addEventListener('click', () => {
+                document.body.classList.remove('high-contrast');
+                // Salva a preferência
+                localStorage.setItem('contrastMode', 'normal');
+            });
+
+            // Aplica a preferência de contraste salva ao carregar a página
+            if (localStorage.getItem('contrastMode') === 'high') {
+                document.body.classList.add('high-contrast');
+            }
+
+            // --- Lógica do Tamanho da Fonte ---
+            let currentFontSize = 100; // Corresponde a 100% no CSS
+
+            function updateFontSize() {
+                document.body.style.fontSize = `${currentFontSize}%`;
+            }
+
+            increaseFontBtn.addEventListener('click', () => {
+                if (currentFontSize < 150) { // Tamanho máximo da fonte 150%
+                    currentFontSize += 10;
+                    updateFontSize();
+                }
+            });
+
+            decreaseFontBtn.addEventListener('click', () => {
+                if (currentFontSize > 80) { // Tamanho mínimo da fonte 80%
+                    currentFontSize -= 10;
+                    updateFontSize();
+                }
+            });
+
+            resetFontBtn.addEventListener('click', () => {
+                currentFontSize = 100; // Redefinir para o padrão
+                updateFontSize();
+            });
+        });
+    </script>
+</body>
+</html>
